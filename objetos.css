@@ -1,0 +1,13 @@
+body{
+    background-size: cover;
+}
+.btn-success{
+    width: 100%;
+    font-size: 130%;
+}
+canvas{
+    border:2px solid white;
+    border-radius: 10px;
+    margin-top: 120px;
+    box-shadow: 5px 5px 5px black;
+}
