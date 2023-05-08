@@ -2,16 +2,12 @@ img="";
 status="";
 objects=[];
 
-function Start(){
-    window.location="Objetos2.html";
-}
-
 function preload(){
-    img=loadImage('Objetos.jpg');
+    img=loadImage('Sabri.jpg');
 }
 
 function setup(){
-    canvas=createCanvas(550,650);
+    canvas=createCanvas(500,650);
     canvas.center();
     objectDetector=ml5.objectDetector('cocossd',modelLoaded);
     document.getElementById("status").innerHTML="Estatus: detectando objetos";
@@ -28,7 +24,7 @@ function draw(){
     if(status !="");
     {
         for(i=0; i<objects.length; i++){
-            document.getElementById("status").innerHTML="Hay tres objetos el modelo solo reconocio 2";
+            document.getElementById("status").innerHTML="Hay 2 objetos el modelo reconocio todas";
             fill("#FFFF00");
             percent=floor(objects[i].confidence*100);
             text(objects[i].label+""+percent+"%",objects[i].x,objects[i].y);
@@ -38,22 +34,16 @@ function draw(){
         }
     }
     fill("#FF0000");
-    text("Cubo",265,450);
+    text("Perrito",100,260);
     noFill();
     stroke("#FF0000");
-    rect(265,450,200,200);
+    rect(100,260,400,300);
 
     fill("#FF0000");
-    text("Lampara",265,10);
+    text("Peluche",10,500);
     noFill();
     stroke("#FF0000");
-    rect(155,10,250,420);
-
-    fill("#FF0000");
-    text("Bote",420,230);
-    noFill();
-    stroke("#FF0000");
-    rect(420,230,130,210);
+    rect(10,500,220,150);
 
 }
 
