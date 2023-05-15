@@ -2,6 +2,10 @@ img="";
 status="";
 objects=[];
 
+function Start(){
+    window.location="Objetos3.html";
+}
+
 function preload(){
     img=loadImage('Sabri.jpg');
 }
@@ -24,34 +28,21 @@ function draw(){
     if(status !="");
     {
         for(i=0; i<objects.length; i++){
-            document.getElementById("status").innerHTML="Hay 2 objetos el modelo reconocio todas";
+            document.getElementById("status").innerHTML="Estatus objeto detectado";
             fill("#FFFF00");
             percent=floor(objects[i].confidence*100);
-            text(objects[i].label+""+percent+"%",objects[i].x,objects[i].y);
+            text(objects[i].label+""+percent+"%",objects[i].x+15,objects[i].y+15);
             noFill();
             stroke("#FF0000");
             rect(objects[i].x,objects[i].y,objects[i].width,objects[i].height);
         }
     }
-    fill("#FF0000");
-    text("Perrito",100,260);
-    noFill();
-    stroke("#FF0000");
-    rect(100,260,400,300);
-
-    fill("#FF0000");
-    text("Peluche",10,500);
-    noFill();
-    stroke("#FF0000");
-    rect(10,500,220,150);
-
 }
 
 function gotResult(error,results){
     if(error){
         console.log(error);
-    }else{
+    }
         console.log(results);
         objects=results;
-    }
 }
